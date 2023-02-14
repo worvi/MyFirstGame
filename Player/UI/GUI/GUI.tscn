@@ -1,0 +1,477 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://assets/PNG/UI/SpeedMeter.png" type="Texture" id=1]
+[ext_resource path="res://UI/GUI/GUI.gd" type="Script" id=2]
+[ext_resource path="res://assets/Bosk.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/PNG/UI/Map/MapBackground.png" type="Texture" id=4]
+[ext_resource path="res://assets/PNG/UI/Map/MapEges3.png" type="Texture" id=5]
+[ext_resource path="res://assets/PNG/UI/Map/Ally.png" type="Texture" id=6]
+[ext_resource path="res://assets/PNG/playerShip1_blue.png" type="Texture" id=7]
+[ext_resource path="res://assets/PNG/UI/Map/Enemy.png" type="Texture" id=8]
+[ext_resource path="res://UI/GUI/SpeedIndicator.gd" type="Script" id=9]
+[ext_resource path="res://UI/GUI/MiniMap.gd" type="Script" id=10]
+[ext_resource path="res://UI/GUI/ScreenBattleTime.gd" type="Script" id=11]
+[ext_resource path="res://UI/GUI/ScreenKapusta.gd" type="Script" id=12]
+[ext_resource path="res://UI/GUI/StatsMupltiplierInfo.gd" type="Script" id=13]
+[ext_resource path="res://assets/PNG/Effects/star1.png" type="Texture" id=14]
+[ext_resource path="res://Resources/Theme/Login.tres" type="Theme" id=15]
+[ext_resource path="res://UI/GUI/TeamView.gd" type="Script" id=16]
+[ext_resource path="res://Resources/Fonts/Bosk_32_1.tres" type="DynamicFont" id=17]
+[ext_resource path="res://Resources/Fonts/Bosk_24_stats.tres" type="DynamicFont" id=18]
+[ext_resource path="res://UI/GUI/TeamView/TaskSelection.tscn" type="PackedScene" id=19]
+[ext_resource path="res://UI/GUI/TeamView/ExampleButton.gd" type="Script" id=20]
+[ext_resource path="res://UI/GUI/TeamViewNorm.gd" type="Script" id=21]
+
+[sub_resource type="DynamicFont" id=1]
+size = 41
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+expand_margin_right = 10.0
+expand_margin_top = 2.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.6, 0.6, 0.6, 0.501961 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+expand_margin_left = 5.0
+expand_margin_top = 2.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id=8]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+expand_margin_left = 5.0
+expand_margin_top = 2.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id=9]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+expand_margin_left = 5.0
+expand_margin_top = 2.0
+expand_margin_bottom = 3.0
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="SpeedIndicator" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+
+[node name="TextureRect" type="TextureRect" parent="SpeedIndicator"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 75.0
+margin_top = -114.0
+margin_right = 216.0
+margin_bottom = -26.0
+rect_min_size = Vector2( -50, -50 )
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+
+[node name="SpeedLabel" type="Label" parent="SpeedIndicator/TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -60.0
+margin_top = -15.0
+margin_right = 60.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 1 )
+text = "9999"
+align = 1
+valign = 1
+
+[node name="ScreenBattleTime" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+mouse_filter = 2
+script = ExtResource( 11 )
+
+[node name="TextureRect" type="TextureRect" parent="ScreenBattleTime"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -70.5
+margin_right = 70.5
+margin_bottom = 88.0
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+
+[node name="TimeLabel" type="Label" parent="ScreenBattleTime/TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -60.0
+margin_top = -15.0
+margin_right = 60.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 1 )
+text = "-0"
+align = 1
+valign = 1
+
+[node name="ScreenKapusta" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+script = ExtResource( 12 )
+
+[node name="TextureRect" type="TextureRect" parent="ScreenKapusta"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -141.0
+margin_bottom = 88.0
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+
+[node name="KapustaLabel" type="Label" parent="ScreenKapusta/TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -60.0
+margin_top = -15.0
+margin_right = 60.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 1 )
+text = "-1"
+align = 1
+valign = 1
+
+[node name="MiniMap" type="MarginContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -348.0
+margin_top = -347.0
+margin_right = -48.0
+margin_bottom = -47.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+script = ExtResource( 10 )
+
+[node name="Frame" type="NinePatchRect" parent="MiniMap"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 295.0
+margin_bottom = 295.0
+texture = ExtResource( 5 )
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="Margin" type="MarginContainer" parent="MiniMap"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 295.0
+margin_bottom = 295.0
+custom_constants/margin_right = 12
+custom_constants/margin_top = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 12
+
+[node name="Grid" type="TextureRect" parent="MiniMap/Margin"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 278.0
+margin_bottom = 278.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="AllyMarker" type="Sprite" parent="MiniMap/Margin"]
+visible = false
+position = Vector2( 78, 100 )
+texture = ExtResource( 6 )
+
+[node name="EnemyMarker" type="Sprite" parent="MiniMap/Margin"]
+visible = false
+position = Vector2( 210, 191 )
+texture = ExtResource( 8 )
+
+[node name="PlayerMarker" type="Sprite" parent="MiniMap/Margin"]
+position = Vector2( 145, 145 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 7 )
+
+[node name="StatsMupltiplierInfo" type="Control" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -20.0
+margin_right = 127.0
+margin_bottom = 56.0
+mouse_filter = 2
+script = ExtResource( 13 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatsMupltiplierInfo"]
+margin_top = 4.0
+margin_right = 98.0
+margin_bottom = 46.0
+mouse_filter = 2
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="StatsMupltiplierInfo/HBoxContainer"]
+margin_right = 25.0
+margin_bottom = 70.0
+mouse_filter = 2
+
+[node name="Cost" type="Label" parent="StatsMupltiplierInfo/HBoxContainer/ButtonsContainer"]
+margin_right = 25.0
+margin_bottom = 14.0
+text = "50"
+align = 1
+
+[node name="DamageButton" type="Button" parent="StatsMupltiplierInfo/HBoxContainer/ButtonsContainer"]
+margin_top = 18.0
+margin_right = 25.0
+margin_bottom = 42.0
+theme = ExtResource( 15 )
+icon = ExtResource( 14 )
+
+[node name="AccelerationButton" type="Button" parent="StatsMupltiplierInfo/HBoxContainer/ButtonsContainer"]
+margin_top = 46.0
+margin_right = 25.0
+margin_bottom = 70.0
+theme = ExtResource( 15 )
+icon = ExtResource( 14 )
+
+[node name="NameContainer" type="VBoxContainer" parent="StatsMupltiplierInfo/HBoxContainer"]
+margin_left = 29.0
+margin_right = 121.0
+margin_bottom = 70.0
+mouse_filter = 2
+
+[node name="Header" type="Label" parent="StatsMupltiplierInfo/HBoxContainer/NameContainer"]
+margin_right = 92.0
+margin_bottom = 14.0
+text = "Multipliers:"
+
+[node name="MarginContainer" type="MarginContainer" parent="StatsMupltiplierInfo/HBoxContainer/NameContainer"]
+margin_top = 18.0
+margin_right = 92.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 2 )
+
+[node name="DamageContainer" type="HBoxContainer" parent="StatsMupltiplierInfo/HBoxContainer/NameContainer"]
+margin_top = 24.0
+margin_right = 92.0
+margin_bottom = 38.0
+mouse_filter = 2
+
+[node name="DamageName" type="Label" parent="StatsMupltiplierInfo/HBoxContainer/NameContainer/DamageContainer"]
+margin_right = 64.0
+margin_bottom = 14.0
+text = "Damage:  "
+
+[node name="DamageValue" type="Label" parent="StatsMupltiplierInfo/HBoxContainer/NameContainer/DamageContainer/DamageName"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -6.0
+margin_right = 2.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="MarginContainer2" type="MarginContainer" parent="StatsMupltiplierInfo/HBoxContainer/NameContainer"]
+margin_top = 42.0
+margin_right = 92.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 6 )
+
+[node name="AccelerationContainer" type="HBoxContainer" parent="StatsMupltiplierInfo/HBoxContainer/NameContainer"]
+margin_top = 52.0
+margin_right = 92.0
+margin_bottom = 66.0
+
+[node name="AccelerationName" type="Label" parent="StatsMupltiplierInfo/HBoxContainer/NameContainer/AccelerationContainer"]
+margin_right = 92.0
+margin_bottom = 14.0
+text = "Acceleration:  "
+
+[node name="AccelerationValue" type="Label" parent="StatsMupltiplierInfo/HBoxContainer/NameContainer/AccelerationContainer/AccelerationName"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -6.0
+margin_right = 2.0
+margin_bottom = 14.0
+text = "0"
+align = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="StatsMupltiplierInfo/HBoxContainer/NameContainer"]
+margin_top = 70.0
+margin_right = 92.0
+margin_bottom = 70.0
+
+[node name="TeamView" type="Control" parent="."]
+visible = false
+margin_right = 398.0
+margin_bottom = 222.0
+rect_min_size = Vector2( 100, 100 )
+mouse_filter = 2
+script = ExtResource( 16 )
+
+[node name="Separator" type="HSplitContainer" parent="TeamView"]
+margin_right = 307.0
+margin_bottom = 62.0
+mouse_filter = 2
+custom_constants/separation = 0
+collapsed = true
+
+[node name="ShipType" type="VBoxContainer" parent="TeamView/Separator"]
+margin_right = 150.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 150, 0 )
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="TeamView/Separator/ShipType"]
+margin_right = 150.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 17 )
+text = "Ship"
+align = 2
+uppercase = true
+
+[node name="Example" type="Button" parent="TeamView/Separator/ShipType"]
+margin_top = 36.0
+margin_right = 150.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 150, 0 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.843137, 0.843137, 0.843137, 1 )
+custom_colors/font_color_pressed = Color( 0.419608, 0.419608, 0.419608, 1 )
+custom_fonts/font = ExtResource( 18 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 10 )
+action_mode = 0
+text = "Example "
+align = 2
+script = ExtResource( 20 )
+
+[node name="ShipTask" type="VBoxContainer" parent="TeamView/Separator"]
+margin_left = 158.0
+margin_right = 307.0
+margin_bottom = 62.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="TeamView/Separator/ShipTask"]
+margin_right = 149.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 17 )
+text = "Task"
+uppercase = true
+
+[node name="Example" type="Button" parent="TeamView/Separator/ShipTask"]
+margin_top = 36.0
+margin_right = 149.0
+margin_bottom = 62.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.843137, 0.843137, 0.843137, 1 )
+custom_colors/font_color_pressed = Color( 0.419608, 0.419608, 0.419608, 1 )
+custom_fonts/font = ExtResource( 18 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 9 )
+toggle_mode = true
+text = "Example"
+align = 0
+script = ExtResource( 20 )
+
+[node name="TaskSelection" parent="TeamView" instance=ExtResource( 19 )]
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="Back" type="Button" parent="TeamView"]
+margin_right = 90.0
+margin_bottom = 32.0
+theme = ExtResource( 15 )
+custom_fonts/font = ExtResource( 18 )
+text = "BACK"
+
+[node name="TeamViewNorm" type="Control" parent="."]
+margin_right = 300.0
+margin_bottom = 70.0
+mouse_filter = 2
+script = ExtResource( 21 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TeamViewNorm"]
+margin_right = 218.0
+margin_bottom = 68.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="TeamViewNorm/VBoxContainer"]
+margin_right = 218.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 17 )
+text = "Task:"
+align = 1
+uppercase = true
+
+[node name="Task" type="Label" parent="TeamViewNorm/VBoxContainer"]
+margin_top = 36.0
+margin_right = 218.0
+margin_bottom = 68.0
+custom_fonts/font = ExtResource( 17 )
+text = "Waiting for task..."
+align = 1
+
+[node name="DestructionTime" type="Label" parent="TeamViewNorm"]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 0.968627, 0.137255, 0.137255, 1 )
+custom_fonts/font = ExtResource( 17 )
+text = "5"
+
+[node name="ActualizeScreenTime" type="Timer" parent="."]
+
+[connection signal="gui_input" from="MiniMap" to="MiniMap" method="_on_MiniMap_gui_input"]
+[connection signal="pressed" from="StatsMupltiplierInfo/HBoxContainer/ButtonsContainer/DamageButton" to="StatsMupltiplierInfo" method="_on_DamageButton_pressed"]
+[connection signal="pressed" from="StatsMupltiplierInfo/HBoxContainer/ButtonsContainer/AccelerationButton" to="StatsMupltiplierInfo" method="_on_AccelerationButton_pressed"]
+[connection signal="mouse_entered" from="TeamView/Separator/ShipType/Example" to="TeamView/Separator/ShipType/Example" method="_on_Example_mouse_entered"]
+[connection signal="mouse_exited" from="TeamView/Separator/ShipType/Example" to="TeamView/Separator/ShipType/Example" method="_on_Example_mouse_exited"]
+[connection signal="pressed" from="TeamView/Separator/ShipType/Example" to="TeamView/Separator/ShipType/Example" method="_on_Example_pressed"]
+[connection signal="pressed_button_with_name" from="TeamView/Separator/ShipType/Example" to="TeamView" method="_on_ShipType_Example_pressed_button_with_name"]
+[connection signal="mouse_entered" from="TeamView/Separator/ShipTask/Example" to="TeamView/Separator/ShipTask/Example" method="_on_Example_mouse_entered"]
+[connection signal="mouse_exited" from="TeamView/Separator/ShipTask/Example" to="TeamView/Separator/ShipTask/Example" method="_on_Example_mouse_exited"]
+[connection signal="pressed_button_with_name" from="TeamView/Separator/ShipTask/Example" to="TeamView" method="_on_Example_pressed_button_with_name"]
+[connection signal="toggled" from="TeamView/Separator/ShipTask/Example" to="TeamView/Separator/ShipTask/Example" method="_on_Example_toggled"]
+[connection signal="pressed" from="TeamView/Back" to="TeamView" method="_on_Back_pressed"]
+[connection signal="timeout" from="ActualizeScreenTime" to="." method="_on_ActualizeScreenTime_timeout"]

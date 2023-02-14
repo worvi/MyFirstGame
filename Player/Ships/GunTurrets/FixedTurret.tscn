@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/PNG/Parts/gun00.png" type="Texture" id=1]
+[ext_resource path="res://Ships/GunTurrets/FixedTurret.gd" type="Script" id=2]
+
+[node name="FixedTurret" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TurretGun" type="Sprite" parent="."]
+rotation = -1.5708
+texture = ExtResource( 1 )
+offset = Vector2( 0, 9 )
+
+[node name="CastPoint" type="Position2D" parent="TurretGun"]
+position = Vector2( 0, 46 )
+rotation = 1.5708

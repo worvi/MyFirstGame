@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Resources/Theme/Login.tres" type="Theme" id=1]
+[ext_resource path="res://assets/Bosk.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Resources/Fonts/Bosk_24_stats.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/PNG/UI/Menu/MiniMenu.png" type="Texture" id=4]
+[ext_resource path="res://UI/GUI/TeamView/TaskSelection.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 62
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="TaskSelection" type="Control"]
+anchor_left = -0.045
+anchor_top = -0.099
+anchor_right = 0.045
+anchor_bottom = 0.101
+margin_left = 86.4
+margin_top = 106.92
+margin_right = -86.4
+margin_bottom = -109.08
+rect_scale = Vector2( 0.6, 0.7 )
+script = ExtResource( 5 )
+
+[node name="Background" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -148.0
+margin_top = -154.5
+margin_right = 148.0
+margin_bottom = 154.5
+texture = ExtResource( 4 )
+patch_margin_left = 21
+patch_margin_right = 19
+patch_margin_bottom = 14
+
+[node name="BiddingScreen" type="VBoxContainer" parent="Background"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -118.0
+margin_top = -147.357
+margin_right = 119.0
+margin_bottom = 147.643
+
+[node name="Title" type="Label" parent="Background/BiddingScreen"]
+margin_right = 237.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 1 )
+text = "Select task"
+align = 1
+
+[node name="Attack" type="Button" parent="Background/BiddingScreen"]
+margin_top = 67.0
+margin_right = 237.0
+margin_bottom = 91.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Attack"
+
+[node name="Defend" type="Button" parent="Background/BiddingScreen"]
+margin_top = 95.0
+margin_right = 237.0
+margin_bottom = 119.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Defend"
+
+[node name="CapturePoints" type="Button" parent="Background/BiddingScreen"]
+margin_top = 123.0
+margin_right = 237.0
+margin_bottom = 147.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Capture Points"
+
+[node name="SelfDestruction" type="Button" parent="Background/BiddingScreen"]
+margin_top = 151.0
+margin_right = 237.0
+margin_bottom = 175.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Self-destruction"
+
+[connection signal="pressed" from="Background/BiddingScreen/Attack" to="." method="_on_Attack_pressed"]
+[connection signal="pressed" from="Background/BiddingScreen/Defend" to="." method="_on_Defend_pressed"]
+[connection signal="pressed" from="Background/BiddingScreen/CapturePoints" to="." method="_on_CapturePoints_pressed"]
+[connection signal="pressed" from="Background/BiddingScreen/SelfDestruction" to="." method="_on_SelfDestruction_pressed"]

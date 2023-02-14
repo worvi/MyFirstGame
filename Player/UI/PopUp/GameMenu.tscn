@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Resources/Fonts/Bosk_32_1.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/PNG/UI/Menu/Menu.png" type="Texture" id=2]
+[ext_resource path="res://UI/PopUp/GameMenu.gd" type="Script" id=3]
+[ext_resource path="res://assets/Bosk.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Resources/Theme/Login.tres" type="Theme" id=5]
+
+[sub_resource type="DynamicFont" id=2]
+size = 62
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="GameMenu" type="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+theme = ExtResource( 5 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -262.5
+margin_right = 200.0
+margin_bottom = 262.5
+rect_min_size = Vector2( 400, 525 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameMenu" type="VBoxContainer" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 35.0
+margin_right = -35.0
+margin_bottom = -35.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Background/GameMenu"]
+margin_right = 330.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 2 )
+text = "Menu"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/GameMenu"]
+margin_top = 67.0
+margin_right = 330.0
+margin_bottom = 197.0
+rect_min_size = Vector2( 0, 130 )
+
+[node name="SelectTeam" type="Button" parent="Background/GameMenu"]
+margin_left = 55.0
+margin_top = 201.0
+margin_right = 275.0
+margin_bottom = 251.0
+rect_min_size = Vector2( 220, 50 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 1 )
+text = "SelectTeam"
+
+[node name="Exit" type="Button" parent="Background/GameMenu"]
+margin_left = 55.0
+margin_top = 255.0
+margin_right = 275.0
+margin_bottom = 305.0
+rect_min_size = Vector2( 220, 50 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 1 )
+text = "Exit"
+
+[connection signal="pressed" from="Background/GameMenu/SelectTeam" to="." method="_on_SelectTeam_pressed"]
+[connection signal="pressed" from="Background/GameMenu/Exit" to="." method="_on_Exit_pressed"]

@@ -1,0 +1,42 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+[application]
+
+config/name="Game_2_serv_ded_yt_vid"
+run/main_scene="res://Scenes/Main/Server.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+ServerData="*res://Scenes/Singletons/ServerData.gd"
+HubConnection="*res://Scenes/Singletons/HubConnection.gd"
+LocalData="*res://Scenes/Singletons/LocalData.gd"
+
+[global]
+
+physic=false
+
+[layer_names]
+
+2d_physics/layer_2="Team1"
+2d_physics/layer_3="Team2"
+2d_physics/layer_4="Shoots"
+2d_physics/layer_6="Bots"
+2d_physics/layer_8="CapturePoints"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+common/physics_interpolation=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

@@ -1,0 +1,259 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Resources/Fonts/Bosk_32_1.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/PNG/UI/Menu/Menu.png" type="Texture" id=2]
+[ext_resource path="res://UI/PopUp/Login.gd" type="Script" id=3]
+[ext_resource path="res://assets/Bosk.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Resources/Theme/Login.tres" type="Theme" id=5]
+[ext_resource path="res://Resources/Fonts/Bosk_24_stats.tres" type="DynamicFont" id=6]
+
+[sub_resource type="DynamicFont" id=2]
+size = 62
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[node name="LoginScreen" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+theme = ExtResource( 5 )
+script = ExtResource( 3 )
+
+[node name="Background" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -262.5
+margin_right = 200.0
+margin_bottom = 262.5
+rect_min_size = Vector2( 400, 525 )
+texture = ExtResource( 2 )
+
+[node name="LoginScreen" type="VBoxContainer" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 35.0
+margin_right = -35.0
+margin_bottom = -35.0
+
+[node name="Title" type="Label" parent="Background/LoginScreen"]
+margin_right = 330.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 2 )
+text = "Login Screen"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/LoginScreen"]
+margin_top = 67.0
+margin_right = 330.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 0, 65 )
+
+[node name="UsernameTitle" type="Label" parent="Background/LoginScreen"]
+visible = false
+margin_top = 136.0
+margin_right = 330.0
+margin_bottom = 168.0
+custom_fonts/font = ExtResource( 1 )
+text = "Username"
+
+[node name="Username" type="LineEdit" parent="Background/LoginScreen"]
+visible = false
+margin_top = 136.0
+margin_right = 330.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 0, 24 )
+text = "abc"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Background/LoginScreen"]
+margin_top = 136.0
+margin_right = 330.0
+margin_bottom = 149.0
+rect_min_size = Vector2( 0, 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PasswordTitle" type="Label" parent="Background/LoginScreen"]
+visible = false
+margin_top = 153.0
+margin_right = 330.0
+margin_bottom = 185.0
+custom_fonts/font = ExtResource( 1 )
+text = "Password"
+
+[node name="Password" type="LineEdit" parent="Background/LoginScreen"]
+visible = false
+margin_top = 153.0
+margin_right = 330.0
+margin_bottom = 177.0
+rect_min_size = Vector2( 0, 24 )
+text = "abcabc"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Background/LoginScreen"]
+margin_top = 153.0
+margin_right = 330.0
+margin_bottom = 218.655
+rect_min_size = Vector2( 0, 65.655 )
+
+[node name="LoginButton" type="Button" parent="Background/LoginScreen"]
+margin_left = 55.0
+margin_top = 222.0
+margin_right = 275.0
+margin_bottom = 272.0
+rect_min_size = Vector2( 220, 50 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 1 )
+text = "Login"
+
+[node name="CreateAccountButton" type="Button" parent="Background/LoginScreen"]
+visible = false
+margin_left = 55.0
+margin_top = 404.0
+margin_right = 275.0
+margin_bottom = 454.0
+rect_min_size = Vector2( 220, 50 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "Create Account"
+
+[node name="MarginContainer4" type="MarginContainer" parent="Background/LoginScreen"]
+margin_top = 276.0
+margin_right = 330.0
+margin_bottom = 284.0
+rect_min_size = Vector2( 0, 8 )
+
+[node name="PublicIPButton" type="Button" parent="Background/LoginScreen"]
+margin_top = 288.0
+margin_right = 330.0
+margin_bottom = 312.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.882353, 0.87451, 0.87451, 1 )
+custom_colors/font_color_pressed = Color( 0.54902, 1, 0.439216, 1 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+action_mode = 0
+text = "0.0.0.0"
+align = 2
+
+[node name="CreateAccountScreen" type="VBoxContainer" parent="Background"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 35.0
+margin_top = 2.0
+margin_right = -35.0
+margin_bottom = -35.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Background/CreateAccountScreen"]
+margin_right = 330.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 2 )
+text = "Create Account"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/CreateAccountScreen"]
+margin_top = 67.0
+margin_right = 330.0
+margin_bottom = 107.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="EmailTitle" type="Label" parent="Background/CreateAccountScreen"]
+margin_top = 111.0
+margin_right = 330.0
+margin_bottom = 143.0
+custom_fonts/font = ExtResource( 1 )
+text = "Email address"
+
+[node name="Email" type="LineEdit" parent="Background/CreateAccountScreen"]
+margin_top = 147.0
+margin_right = 330.0
+margin_bottom = 171.0
+rect_min_size = Vector2( 0, 24 )
+
+[node name="PasswordTitle" type="Label" parent="Background/CreateAccountScreen"]
+margin_top = 175.0
+margin_right = 330.0
+margin_bottom = 207.0
+custom_fonts/font = ExtResource( 1 )
+text = "Password"
+
+[node name="Password" type="LineEdit" parent="Background/CreateAccountScreen"]
+margin_top = 211.0
+margin_right = 330.0
+margin_bottom = 235.0
+rect_min_size = Vector2( 0, 24 )
+
+[node name="RepeatPasswordTitle" type="Label" parent="Background/CreateAccountScreen"]
+margin_top = 239.0
+margin_right = 330.0
+margin_bottom = 271.0
+custom_fonts/font = ExtResource( 1 )
+text = "Password"
+
+[node name="RepeatedPassword" type="LineEdit" parent="Background/CreateAccountScreen"]
+margin_top = 275.0
+margin_right = 330.0
+margin_bottom = 299.0
+rect_min_size = Vector2( 0, 24 )
+
+[node name="MarginContainer2" type="MarginContainer" parent="Background/CreateAccountScreen"]
+margin_top = 303.0
+margin_right = 330.0
+margin_bottom = 322.723
+rect_min_size = Vector2( 0, 19.723 )
+
+[node name="ConfirmButton" type="Button" parent="Background/CreateAccountScreen"]
+margin_left = 55.0
+margin_top = 326.0
+margin_right = 275.0
+margin_bottom = 376.0
+rect_min_size = Vector2( 220, 50 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 1 )
+text = "Confirm"
+
+[node name="BackToLoginButton" type="Button" parent="Background/CreateAccountScreen"]
+margin_left = 55.0
+margin_top = 380.0
+margin_right = 275.0
+margin_bottom = 430.0
+rect_min_size = Vector2( 220, 50 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 1 )
+text = "Back"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="pressed" from="Background/LoginScreen/LoginButton" to="." method="_on_LoginButton_pressed"]
+[connection signal="pressed" from="Background/LoginScreen/CreateAccountButton" to="." method="_on_CreateAccountButton_pressed"]
+[connection signal="pressed" from="Background/LoginScreen/PublicIPButton" to="." method="_on_PublicIPButton_pressed"]
+[connection signal="pressed" from="Background/CreateAccountScreen/ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
+[connection signal="pressed" from="Background/CreateAccountScreen/BackToLoginButton" to="." method="_on_BackToLoginButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
